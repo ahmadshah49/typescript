@@ -1,5 +1,5 @@
-export type todoItemType = {
+type todoType = {
+  id: string;
   title: string;
   isCompleted: boolean;
-  id: string;
 };
