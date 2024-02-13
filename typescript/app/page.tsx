@@ -17,6 +17,16 @@ const page = () => {
     const newtodo: todoItemType[] = todos.filter((i) => i.id !== id);
     setTodos(newtodo);
   };
+  const editHandler = (
+    id: todoItemType["id"],
+    title: todoItemType["title"]
+  ): void => {
+    const newtodos: todoItemType[] = todos.map((i) => {
+      if (i.id === id) i.title = title;
+      return i;
+    });
+    setTodos(newtodos);
+  };
   const submitHandler = () => {
     const newTodo: todoItemType = {
       title,
@@ -36,6 +46,7 @@ const page = () => {
             todo={i}
             deleteHandler={deleteHandler}
             completeHandler={completeHandler}
+            editHandler={editHandler}
           />
         ))}
       </div>
